@@ -2,224 +2,168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phasmophobia Cheat Sheet | Grimmpeeper's Community Server</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: #0e0e0e;
+      color: #fff;
     }
     header {
-      background-color: #1e1e1e;
+      background-color: #1a1a1a;
       padding: 1.5rem;
       text-align: center;
-      font-size: 1.8rem;
-      font-weight: 500;
-      border-bottom: 1px solid #333;
-    }
-    header span {
-      font-weight: 300;
-      font-size: 1rem;
-      display: block;
-      margin-top: 0.3rem;
-      color: #888;
+      font-size: 2rem;
+      border-bottom: 1px solid #444;
     }
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 2rem 1rem 3rem;
+      padding: 1rem;
     }
     .evidence {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 2rem;
+      gap: 0.5rem;
       justify-content: center;
+      margin-bottom: 1.5rem;
     }
     .evidence button {
-      background-color: #222;
-      color: #ccc;
-      border: 1.5px solid #444;
-      padding: 0.5rem 1.2rem;
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 0.6rem 1rem;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s, color 0.3s;
-      user-select: none;
+      transition: 0.2s;
     }
     .evidence button.selected {
       background-color: #00bcd4;
-      color: #121212;
-      border-color: #00bcd4;
+      color: #000;
+      font-weight: bold;
     }
     .ghost-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-      gap: 1.3rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
     }
     .ghost-card {
-      background-color: #1e1e1e;
-      border: 1.5px solid #333;
+      background-color: #1c1c1c;
+      padding: 1rem;
+      border: 1px solid #333;
       border-radius: 10px;
-      padding: 1.3rem 1.5rem;
-      box-shadow: 0 0 10px rgba(0,188,212,0.3);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      user-select: text;
-      transition: border-color 0.3s;
+      transition: 0.3s;
     }
     .ghost-card.highlighted {
       border-color: #00bcd4;
-      box-shadow: 0 0 15px #00bcd4;
+      box-shadow: 0 0 10px #00bcd4;
     }
     .ghost-name {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #00bcd4;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
     .ghost-info {
-      font-size: 1rem;
-      color: #ccc;
-      line-height: 1.3;
-    }
-    .ghost-info strong {
-      color: #fff;
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
     }
     .timers {
-      background-color: #1e1e1e;
-      border: 1.5px solid #444;
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      max-width: 400px;
-      margin: 3rem auto 0;
       text-align: center;
-      user-select: none;
+      margin: 2rem 0;
     }
-    .timers h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 500;
-      font-size: 1.4rem;
-      color: #00bcd4;
+    .timer-block {
+      margin-bottom: 2rem;
     }
-    .timers div {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
+    .timer-label {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
-    .timers button {
-      background-color: #00bcd4;
-      border: none;
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
-      color: #121212;
-      font-weight: 600;
+    .timer-display {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    .timer-buttons button {
+      margin: 0 0.3rem;
+      padding: 0.4rem 0.8rem;
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 5px;
+      color: #fff;
       cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s;
-    }
-    .timers button:disabled {
-      background-color: #555;
-      cursor: default;
     }
     footer {
       text-align: center;
-      padding: 1rem 0;
       font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #333;
-      user-select: none;
-    }
-    @media (max-width: 600px) {
-      .timers {
-        max-width: 95%;
-      }
-      .evidence {
-        justify-content: center;
-      }
+      padding: 1rem;
+      color: #888;
+      border-top: 1px solid #444;
     }
   </style>
 </head>
 <body>
-  <header>
-    Phasmophobia Cheat Sheet
-    <span>Grimmpeeper's Community Server</span>
-  </header>
+  <header>Phasmophobia Cheat Sheet<br><small style="font-size:1rem;">Grimmpeeper's Community Server</small></header>
   <div class="container">
     <div class="evidence" id="evidence-buttons"></div>
-
     <div class="ghost-cards" id="ghost-cards"></div>
 
     <div class="timers">
-      <h2>Phasmophobia Tools & Timers</h2>
-      <div>
-        <strong>Smudge Stick burn duration:</strong>
-        <button id="start-smudge">Start Smudge Timer</button>
-        <span id="smudge-timer">--</span>
+      <div class="timer-block">
+        <div class="timer-label">Smudge Timer (3 min)</div>
+        <div class="timer-display" id="smudge-timer">Not started</div>
+        <div class="timer-buttons">
+          <button id="start-smudge">Start</button>
+          <button id="stop-smudge">Stop</button>
+          <button id="reset-smudge">Reset</button>
+        </div>
       </div>
-      <div>
-        <strong>Hunt warning time:</strong>
-        <button id="start-hunt">Start Hunt Timer</button>
-        <span id="hunt-timer">--</span>
+      <div class="timer-block">
+        <div class="timer-label">Hunt Cooldown Timer (25 sec)</div>
+        <div class="timer-display" id="hunt-timer">Not started</div>
+        <div class="timer-buttons">
+          <button id="start-hunt">Start</button>
+          <button id="stop-hunt">Stop</button>
+          <button id="reset-hunt">Reset</button>
+        </div>
       </div>
-      <p><strong>Ghost speed during hunt:</strong> 4 m/s (varies by ghost)</p>
-      <p><strong>Ghost normal speed:</strong> See cards above</p>
     </div>
   </div>
-  <footer>
-    &copy; 2025 Grimmpeeper's Community Server — Phasmophobia info © Kinetic Games
-  </footer>
-
+  <footer>&copy; 2025 Grimmpeeper's Community Server | All game data © Kinetic Games</footer>
   <script>
-    const evidenceList = [
-      "EMF Level 5",
-      "Spirit Box",
-      "Ghost Writing",
-      "Freezing Temps",
-      "Ghost Orb",
-      "D.O.T.S Projector",
-      "Ultraviolet",
-      "Thermometer"
-    ];
+    const evidenceList = ["EMF Level 5", "Spirit Box", "Ghost Writing", "Freezing Temps", "Ghost Orb", "D.O.T.S Projector", "Ultraviolet"];
 
     const ghosts = [
-      { name: "Spirit", evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"], traits: "No unique strengths, standard ghost.", speed: "1.0" },
-      { name: "Wraith", evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"], traits: "Doesn't leave footprints, hates salt.", speed: "1.25" },
-      { name: "Phantom", evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"], traits: "Looking at it drops sanity fast.", speed: "1.25" },
-      { name: "Poltergeist", evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"], traits: "Can throw multiple objects at once.", speed: "1.0" },
-      { name: "Banshee", evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"], traits: "Targets one person at a time.", speed: "1.25" },
-      { name: "Jinn", evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"], traits: "Travels faster if you're far away.", speed: "1.5" },
-      { name: "Mare", evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"], traits: "Increases ghost activity.", speed: "1.0" },
-      { name: "Revenant", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Moves faster during a hunt.", speed: "1.8" },
-      { name: "Shade", evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"], traits: "Shy, less likely to attack with multiple people nearby.", speed: "1.0" },
-      { name: "Demon", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "More aggressive, can hunt multiple times.", speed: "1.25" },
-      { name: "Yurei", evidence: ["Ghost Orb", "Freezing Temps", "D.O.T.S Projector"], traits: "Drains player's sanity faster.", speed: "1.0" },
-      { name: "Oni", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Moves objects faster, more active.", speed: "1.5" },
-      { name: "Hantu", evidence: ["Ghost Orb", "Freezing Temps", "Thermometer"], traits: "Moves faster in cold areas.", speed: "1.25" },
-      { name: "Goryo", evidence: ["EMF Level 5", "D.O.T.S Projector", "Thermometer"], traits: "Rare, only shows D.O.T.S on camera if no one else is nearby.", speed: "1.0" },
-      { name: "Myling", evidence: ["EMF Level 5", "Ghost Writing", "Thermometer"], traits: "Quieter ghost, less ghostly voices.", speed: "1.0" },
-      { name: "Onryo", evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"], traits: "Hunt can freeze players.", speed: "1.0" },
-      { name: "Twins", evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"], traits: "Two ghosts, one controls other.", speed: "1.0" },
-      { name: "Raiju", evidence: ["EMF Level 5", "Spirit Box", "Ultraviolet"], traits: "Moves faster near electrical devices.", speed: "1.5" },
-      { name: "Obake", evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"], traits: "Can shape-shift, changes evidence occasionally.", speed: "1.0" },
-      { name: "Thaye", evidence: ["Spirit Box", "Ghost Orb", "Ultraviolet"], traits: "Can teleport objects, teleports after hunting.", speed: "1.0" },
-      { name: "Morrigan", evidence: ["EMF Level 5", "Ghost Writing", "Ghost Orb"], traits: "Can possess and control other ghosts.", speed: "1.0" },
-      { name: "Deogen", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Hunts less frequently but more aggressively.", speed: "1.3" },
-      { name: "Moroi", evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"], traits: "Feeds on player sanity, stronger hunts.", speed: "1.0" },
-      { name: "Dream Witch", evidence: ["Spirit Box", "Ghost Writing", "D.O.T.S Projector"], traits: "Causes sleep paralysis effects.", speed: "1.0" }
+      { name: "Spirit", evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"], traits: "No unique strengths, standard ghost.", speed: "1.7" },
+      { name: "Wraith", evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"], traits: "Doesn’t step in salt, can teleport.", speed: "1.9" },
+      { name: "Phantom", evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"], traits: "Looking at it drops sanity fast.", speed: "1.7" },
+      { name: "Poltergeist", evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"], traits: "Throws multiple objects at once.", speed: "1.7" },
+      { name: "Banshee", evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"], traits: "Targets one person at a time.", speed: "1.7" },
+      { name: "Jinn", evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"], traits: "Travels faster if power is on.", speed: "2.5" },
+      { name: "Mare", evidence: ["Spirit Box", "Ghost Writing", "Ghost Orb"], traits: "More active in darkness.", speed: "1.7" },
+      { name: "Revenant", evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"], traits: "Very fast when hunting visible players.", speed: "3.0 (slow if not chasing)" },
+      { name: "Shade", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Shy ghost, less active around people.", speed: "1.7" },
+      { name: "Demon", evidence: ["Ultraviolet", "Ghost Writing", "Freezing Temps"], traits: "Hunts more often than others.", speed: "1.7" },
+      { name: "Yurei", evidence: ["Ghost Orb", "Freezing Temps", "D.O.T.S Projector"], traits: "Drains sanity faster.", speed: "1.7" },
+      { name: "Oni", evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"], traits: "More active and visible.", speed: "1.7" },
+      { name: "Yokai", evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"], traits: "Can’t hear far away voices during hunt.", speed: "1.7" },
+      { name: "Hantu", evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"], traits: "Faster in cold rooms.", speed: "1.4 - 2.7" },
+      { name: "Goryo", evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"], traits: "Only visible through camera.", speed: "1.7" },
+      { name: "Myling", evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"], traits: "Quieter footsteps.", speed: "1.7" },
+      { name: "Onryo", evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"], traits: "Hunted by extinguishing flames.", speed: "1.7" },
+      { name: "The Twins", evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"], traits: "Two ghosts acting independently.", speed: "1.5 / 1.9" },
+      { name: "Raiju", evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"], traits: "Faster near electronics.", speed: "2.5 (near devices)" },
+      { name: "Obake", evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"], traits: "May leave shapeshifted fingerprints.", speed: "1.7" },
+      { name: "Thaye", evidence: ["Ghost Orb", "Ghost Writing", "D.O.T.S Projector"], traits: "Ages over time, gets weaker.", speed: "2.75 (young) to 1.0 (old)" },
+      { name: "Moroi", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "Curses players, speeds up when hunting low sanity.", speed: "1.5 - 2.25" },
+      { name: "Deogen", evidence: ["Spirit Box", "Ghost Writing", "D.O.T.S Projector"], traits: "Very fast until near you.", speed: "3.0 → 0.4" },
+      { name: "Mimic", evidence: ["Spirit Box", "Ultraviolet", "Freezing Temps"], traits: "Mimics traits of other ghosts.", speed: "varies" }
     ];
 
     const evidenceButtonsDiv = document.getElementById('evidence-buttons');
     const ghostCardsDiv = document.getElementById('ghost-cards');
 
-    // Render evidence filter buttons
     evidenceList.forEach(ev => {
       const btn = document.createElement('button');
       btn.textContent = ev;
@@ -231,101 +175,72 @@
     });
 
     function filterGhosts() {
-      const selectedEvidence = [...evidenceButtonsDiv.querySelectorAll('button.selected')].map(b => b.textContent);
-      // For each ghost card: highlight if ghost has all selected evidence, else fade
-      ghosts.forEach((ghost, i) => {
+      const selected = [...evidenceButtonsDiv.querySelectorAll('.selected')].map(b => b.textContent);
+      ghosts.forEach((g, i) => {
         const card = ghostCardsDiv.children[i];
-        // Check if ghost includes all selected evidence
-        const matches = selectedEvidence.every(ev => ghost.evidence.includes(ev));
-        if (selectedEvidence.length === 0 || matches) {
-          card.classList.add('highlighted');
-          card.style.opacity = '1';
-        } else {
-          card.classList.remove('highlighted');
-          card.style.opacity = '0.4';
-        }
+        const match = selected.every(ev => g.evidence.includes(ev));
+        card.classList.toggle('highlighted', match || selected.length === 0);
+        card.style.opacity = match || selected.length === 0 ? '1' : '0.4';
       });
     }
 
     function createGhostCard(ghost) {
       const card = document.createElement('div');
       card.className = 'ghost-card';
-
-      const name = document.createElement('div');
-      name.className = 'ghost-name';
-      name.textContent = ghost.name;
-      card.appendChild(name);
-
-      const ev = document.createElement('div');
-      ev.className = 'ghost-info';
-      ev.innerHTML = `<strong>Evidence:</strong> ${ghost.evidence.join(', ')}`;
-      card.appendChild(ev);
-
-      const traits = document.createElement('div');
-      traits.className = 'ghost-info';
-      traits.innerHTML = `<strong>Traits:</strong> ${ghost.traits}`;
-      card.appendChild(traits);
-
-      const speed = document.createElement('div');
-      speed.className = 'ghost-info';
-      speed.innerHTML = `<strong>Speed:</strong> ${ghost.speed} m/s`;
-      card.appendChild(speed);
-
+      card.innerHTML = `
+        <div class="ghost-name">${ghost.name}</div>
+        <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(', ')}</div>
+        <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
+        <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed} m/s</div>
+      `;
       return card;
     }
 
-    // Render all ghost cards
-    ghosts.forEach(ghost => {
-      ghostCardsDiv.appendChild(createGhostCard(ghost));
-    });
+    ghosts.forEach(g => ghostCardsDiv.appendChild(createGhostCard(g)));
 
-    // Timer code
-    const smudgeButton = document.getElementById('start-smudge');
-    const smudgeTimerSpan = document.getElementById('smudge-timer');
-    const huntButton = document.getElementById('start-hunt');
-    const huntTimerSpan = document.getElementById('hunt-timer');
+    function setupTimer(startBtnId, stopBtnId, resetBtnId, displayId, duration, label) {
+      let interval = null;
+      let timeLeft = duration;
+      const startBtn = document.getElementById(startBtnId);
+      const stopBtn = document.getElementById(stopBtnId);
+      const resetBtn = document.getElementById(resetBtnId);
+      const display = document.getElementById(displayId);
 
-    let smudgeInterval, huntInterval;
-    const SMUDGE_DURATION = 300; // 5 minutes = 300 seconds
-    const HUNT_DURATION = 20;    // Hunt warning time = 20 seconds
+      function updateDisplay() {
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        display.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+      }
 
-    function formatTime(seconds) {
-      const m = Math.floor(seconds / 60);
-      const s = seconds % 60;
-      return `${m}:${s.toString().padStart(2, '0')}`;
+      startBtn.onclick = () => {
+        if (interval) return;
+        updateDisplay();
+        interval = setInterval(() => {
+          timeLeft--;
+          updateDisplay();
+          if (timeLeft <= 0) {
+            clearInterval(interval);
+            interval = null;
+            display.textContent = `${label} ended!`;
+          }
+        }, 1000);
+      };
+
+      stopBtn.onclick = () => {
+        clearInterval(interval);
+        interval = null;
+      };
+
+      resetBtn.onclick = () => {
+        clearInterval(interval);
+        interval = null;
+        timeLeft = duration;
+        display.textContent = 'Not started';
+      };
     }
 
-    smudgeButton.onclick = () => {
-      clearInterval(smudgeInterval);
-      let timeLeft = SMUDGE_DURATION;
-      smudgeTimerSpan.textContent = formatTime(timeLeft);
-      smudgeButton.disabled = true;
-      smudgeInterval = setInterval(() => {
-        timeLeft--;
-        smudgeTimerSpan.textContent = formatTime(timeLeft);
-        if (timeLeft <= 0) {
-          clearInterval(smudgeInterval);
-          smudgeTimerSpan.textContent = "Smudge expired";
-          smudgeButton.disabled = false;
-        }
-      }, 1000);
-    };
-
-    huntButton.onclick = () => {
-      clearInterval(huntInterval);
-      let timeLeft = HUNT_DURATION;
-      huntTimerSpan.textContent = formatTime(timeLeft);
-      huntButton.disabled = true;
-      huntInterval = setInterval(() => {
-        timeLeft--;
-        huntTimerSpan.textContent = formatTime(timeLeft);
-        if (timeLeft <= 0) {
-          clearInterval(huntInterval);
-          huntTimerSpan.textContent = "Hunt started!";
-          huntButton.disabled = false;
-        }
-      }, 1000);
-    };
+    setupTimer('start-smudge', 'stop-smudge', 'reset-smudge', 'smudge-timer', 180, 'Smudge');
+    setupTimer('start-hunt', 'stop-hunt', 'reset-hunt', 'hunt-timer', 25, 'Hunt cooldown');
   </script>
 </body>
 </html>
