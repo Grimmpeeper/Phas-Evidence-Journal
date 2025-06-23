@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Phasmophobia Cheat Sheet | Grimmpeeper's Community Server</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -115,7 +115,9 @@
   </style>
 </head>
 <body>
-  <header>Phasmophobia Cheat Sheet<br><small style="font-size:1rem;">Grimmpeeper's Community Server</small></header>
+  <header>
+    Phasmophobia Cheat Sheet<br /><small style="font-size:1rem;">Grimmpeeper's Community Server</small>
+  </header>
   <div class="container">
     <div class="evidence" id="evidence-buttons"></div>
     <div class="ghost-cards" id="ghost-cards"></div>
@@ -142,246 +144,268 @@
   </div>
   <footer>&copy; 2025 Grimmpeeper's Community Server | All game data © Kinetic Games</footer>
   <script>
-    const evidenceList = ["EMF Level 5", "Spirit Box", "Ghost Writing", "Freezing Temps", "Ghost Orb", "D.O.T.S Projector", "Ultraviolet"];
+    const evidenceList = [
+      "EMF Level 5",
+      "Spirit Box",
+      "Ghost Writing",
+      "Freezing Temps",
+      "Ghost Orb",
+      "D.O.T.S Projector",
+      "Ultraviolet",
+    ];
+
     const ghosts = [
-  {
-    name: "Spirit",
-    evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
-    traits: "Standard ghost with no unique strengths.",
-    speed: 1.7
-  },
-  {
-    name: "Wraith",
-    evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
-    traits: "Does not leave footprints, hates salt.",
-    speed: 1.7
-  },
-  {
-    name: "Phantom",
-    evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
-    traits: "Looking at it drops sanity quickly.",
-    speed: 1.7
-  },
-  {
-    name: "Poltergeist",
-    evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
-    traits: "Throws multiple objects at once.",
-    speed: 1.7
-  },
-  {
-    name: "Banshee",
-    evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
-    traits: "Targets one person at a time.",
-    speed: 1.7
-  },
-  {
-    name: "Jinn",
-    evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
-    traits: "Moves faster when far from players.",
-    speed: 2.5
-  },
-  {
-    name: "Mare",
-    evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
-    traits: "More likely to attack in the dark.",
-    speed: 1.7
-  },
-  {
-    name: "Revenant",
-    evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
-    traits: "Very fast when chasing, slow otherwise.",
-    speed: "1.0 / 3.0"
-  },
-  {
-    name: "Shade",
-    evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
-    traits: "Shy, less active around groups.",
-    speed: 1.7
-  },
-  {
-    name: "Demon",
-    evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"],
-    traits: "Can hunt more often.",
-    speed: 1.7
-  },
-  {
-    name: "Yurei",
-    evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Strong sanity drain.",
-    speed: 1.7
-  },
-  {
-    name: "Oni",
-    evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
-    traits: "More active and visible.",
-    speed: 1.7
-  },
-  {
-    name: "Yokai",
-    evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Hunts more when talking.",
-    speed: 1.7
-  },
-  {
-    name: "Hantu",
-    evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"],
-    traits: "Faster in cold rooms.",
-    speed: "1.4 - 2.7"
-  },
-  {
-    name: "Goryo",
-    evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"],
-    traits: "D.O.T.S. only on camera.",
-    speed: 1.7
-  },
-  {
-    name: "Myling",
-    evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"],
-    traits: "Quieter footsteps.",
-    speed: 1.7
-  },
-  {
-    name: "Onryo",
-    evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
-    traits: "Fear of fire.",
-    speed: 1.7
-  },
-  {
-    name: "The Twins",
-    evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"],
-    traits: "Can interact in two places.",
-    speed: "1.5 / 1.9"
-  },
-  {
-    name: "Raiju",
-    evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Faster near electronics.",
-    speed: "1.7 / 2.5"
-  },
-  {
-    name: "Obake",
-    evidence: ["EMF Level 5", "Ghost Orb", "Ultraviolet"],
-    traits: "Rare fingerprint variants.",
-    speed: 1.7
-  },
-  {
-    name: "The Mimic",
-    evidence: ["Spirit Box", "Ultraviolet", "Freezing Temps"],
-    traits: "Mimics other ghosts. Has Ghost Orbs.",
-    speed: "Varies"
-  },
-  {
-    name: "Moroi",
-    evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
-    traits: "Weakens with smudge; speeds up during hunts.",
-    speed: "1.5 - 2.25"
-  },
-  {
-    name: "Deogen",
-    evidence: ["Spirit Box", "Ghost Writing", "D.O.T.S Projector"],
-    traits: "Sees through hiding spots. Slows when near.",
-    speed: "3.0 → 0.4"
-  },
-  {
-    name: "Thaye",
-    evidence: ["Ghost Orb", "Ghost Writing", "D.O.T.S Projector"],
-    traits: "Ages and weakens over time.",
-    speed: "2.75 → 1.0"
-  }
-];
+      {
+        name: "Spirit",
+        evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
+        traits: "Standard ghost with no unique strengths.",
+        speed: 1.7,
+      },
+      {
+        name: "Wraith",
+        evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
+        traits: "Does not leave footprints, hates salt.",
+        speed: 1.7,
+      },
+      {
+        name: "Phantom",
+        evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
+        traits: "Looking at it drops sanity quickly.",
+        speed: 1.7,
+      },
+      {
+        name: "Poltergeist",
+        evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
+        traits: "Throws multiple objects at once.",
+        speed: 1.7,
+      },
+      {
+        name: "Banshee",
+        evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
+        traits: "Targets one person at a time.",
+        speed: 1.7,
+      },
+      {
+        name: "Jinn",
+        evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
+        traits: "Moves faster when far from players.",
+        speed: 2.5,
+      },
+      {
+        name: "Mare",
+        evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
+        traits: "More likely to attack in the dark.",
+        speed: 1.7,
+      },
+      {
+        name: "Revenant",
+        evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
+        traits: "Very fast when chasing, slow otherwise.",
+        speed: "1.0 / 3.0",
+      },
+      {
+        name: "Shade",
+        evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
+        traits: "Shy, less active around groups.",
+        speed: 1.7,
+      },
+      {
+        name: "Demon",
+        evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"],
+        traits: "Can hunt more often.",
+        speed: 1.7,
+      },
+      {
+        name: "Yurei",
+        evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"],
+        traits: "Strong sanity drain.",
+        speed: 1.7,
+      },
+      {
+        name: "Oni",
+        evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
+        traits: "More active and visible.",
+        speed: 1.7,
+      },
+      {
+        name: "Yokai",
+        evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"],
+        traits: "Hunts more when talking.",
+        speed: 1.7,
+      },
+      {
+        name: "Hantu",
+        evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"],
+        traits: "Faster in cold rooms.",
+        speed: "1.4 - 2.7",
+      },
+      {
+        name: "Goryo",
+        evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"],
+        traits: "D.O.T.S. only on camera.",
+        speed: 1.7,
+      },
+      {
+        name: "Myling",
+        evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"],
+        traits: "Quieter footsteps.",
+        speed: 1.7,
+      },
+      {
+        name: "Onryo",
+        evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
+        traits: "Fires extinguish hunting chance.",
+        speed: 1.7,
+      },
+      {
+        name: "Raiju",
+        evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"],
+        traits: "Electrifies nearby electronics.",
+        speed: 1.7,
+      },
+      {
+        name: "Obake",
+        evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"],
+        traits: "Changes shape while hunting.",
+        speed: 1.7,
+      },
+      {
+        name: "The Twins",
+        evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
+        traits: "Can separate and hunt individually.",
+        speed: 1.7,
+      },
+    ];
 
     const evidenceButtonsDiv = document.getElementById('evidence-buttons');
     const ghostCardsDiv = document.getElementById('ghost-cards');
 
-    evidenceList.forEach(ev => {
+    function normalizeEvidence(name) {
+      return name.trim().toLowerCase();
+    }
+
+    // Create evidence buttons
+    evidenceList.forEach(evidence => {
       const btn = document.createElement('button');
-      btn.textContent = ev;
-      btn.onclick = () => {
+      btn.textContent = evidence;
+      btn.addEventListener('click', () => {
         btn.classList.toggle('selected');
         filterGhosts();
-      };
+      });
       evidenceButtonsDiv.appendChild(btn);
     });
 
-    function createGhostCard(ghost) {
+    // Create ghost cards
+    ghosts.forEach(ghost => {
       const card = document.createElement('div');
       card.className = 'ghost-card';
       card.innerHTML = `
         <div class="ghost-name">${ghost.name}</div>
         <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(', ')}</div>
         <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
-        <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed} m/s</div>
+        <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed}</div>
       `;
-      return card;
-    }
+      ghostCardsDiv.appendChild(card);
+    });
 
-    const ghostCards = ghosts.map(g => createGhostCard(g));
-    ghostCards.forEach(card => ghostCardsDiv.appendChild(card));
+    // Cache cards array for filtering
+    const ghostCards = Array.from(document.querySelectorAll('.ghost-card'));
 
     function filterGhosts() {
-      const selected = [...evidenceButtonsDiv.querySelectorAll('.selected')].map(b => b.textContent);
+      const selected = [...evidenceButtonsDiv.querySelectorAll('.selected')]
+        .map(b => normalizeEvidence(b.textContent));
+
+      if (selected.length === 0) {
+        // No evidence selected: show all normally
+        ghostCards.forEach(card => {
+          card.classList.remove('highlighted');
+          card.style.opacity = '1';
+        });
+        ghostCards.forEach(card => ghostCardsDiv.appendChild(card));
+        return;
+      }
+
       ghostCards.forEach((card, i) => {
-        const ghost = ghosts[i];
-        const match = selected.every(ev => ghost.evidence.includes(ev));
-        card.classList.toggle('highlighted', match || selected.length === 0);
-        card.style.opacity = match || selected.length === 0 ? '1' : '0.4';
+        const ghostEvidenceNormalized = ghosts[i].evidence.map(e => normalizeEvidence(e));
+        // Highlight if ghost has ALL selected evidence (AND logic) or ANY selected evidence (OR logic)
+        // For your request, highlight ghosts that have ALL selected evidence:
+        const hasAllEvidence = selected.every(ev => ghostEvidenceNormalized.includes(ev));
+        card.classList.toggle('highlighted', hasAllEvidence);
+        card.style.opacity = hasAllEvidence ? '1' : '0.4';
       });
-      ghostCards.sort((a, b) => b.classList.contains('highlighted') - a.classList.contains('highlighted'));
-      ghostCards.forEach(card => {
-        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-card.style.opacity = '0';
-card.style.transform = 'translateY(20px)';
-requestAnimationFrame(() => {
-  card.style.opacity = '1';
-  card.style.transform = 'translateY(0)';
-});
+
+      // Move highlighted ghosts to top with animation
+      const highlighted = ghostCards.filter(card => card.classList.contains('highlighted'));
+      const notHighlighted = ghostCards.filter(card => !card.classList.contains('highlighted'));
+
+      ghostCardsDiv.innerHTML = '';
+      highlighted.forEach(card => {
+        card.style.animation = 'none';
+        void card.offsetWidth; // trigger reflow
+        card.style.animation = 'fadeInSlide 0.4s forwards';
+        ghostCardsDiv.appendChild(card);
+      });
+      notHighlighted.forEach(card => {
+        card.style.animation = 'none';
+        void card.offsetWidth; // trigger reflow
+        card.style.animation = 'fadeInSlide 0.4s forwards';
         ghostCardsDiv.appendChild(card);
       });
     }
 
-    function setupTimer(startBtnId, stopBtnId, resetBtnId, displayId, duration, label) {
-      let interval = null;
-      let timeLeft = duration;
-      const startBtn = document.getElementById(startBtnId);
-      const stopBtn = document.getElementById(stopBtnId);
-      const resetBtn = document.getElementById(resetBtnId);
-      const display = document.getElementById(displayId);
+    // Timers (basic implementation)
+    function createTimer(displayEl, durationSeconds) {
+      let timerId = null;
+      let endTime = null;
 
-      function updateDisplay() {
-        const m = Math.floor(timeLeft / 60);
-        const s = timeLeft % 60;
-        display.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+      function update() {
+        const now = Date.now();
+        const diff = Math.max(0, Math.round((endTime - now) / 1000));
+        if (diff === 0) {
+          clearInterval(timerId);
+          timerId = null;
+          displayEl.textContent = 'Finished';
+          return;
+        }
+        displayEl.textContent = `${diff} seconds`;
       }
 
-      startBtn.onclick = () => {
-        if (interval) return;
-        updateDisplay();
-        interval = setInterval(() => {
-          timeLeft--;
-          updateDisplay();
-          if (timeLeft <= 0) {
-            clearInterval(interval);
-            interval = null;
-            display.textContent = `${label} ended!`;
+      return {
+        start() {
+          if (timerId) return; // Already running
+          endTime = Date.now() + durationSeconds * 1000;
+          update();
+          timerId = setInterval(update, 1000);
+        },
+        stop() {
+          if (timerId) {
+            clearInterval(timerId);
+            timerId = null;
+            displayEl.textContent = 'Stopped';
           }
-        }, 1000);
-      };
-
-      stopBtn.onclick = () => {
-        clearInterval(interval);
-        interval = null;
-      };
-
-      resetBtn.onclick = () => {
-        clearInterval(interval);
-        interval = null;
-        timeLeft = duration;
-        display.textContent = 'Not started';
+        },
+        reset() {
+          if (timerId) {
+            clearInterval(timerId);
+            timerId = null;
+          }
+          displayEl.textContent = 'Not started';
+        }
       };
     }
 
-    setupTimer('start-smudge', 'stop-smudge', 'reset-smudge', 'smudge-timer', 180, 'Smudge');
-    setupTimer('start-hunt', 'stop-hunt', 'reset-hunt', 'hunt-timer', 25, 'Hunt cooldown');
+    const smudgeTimer = createTimer(document.getElementById('smudge-timer'), 180);
+    document.getElementById('start-smudge').onclick = () => smudgeTimer.start();
+    document.getElementById('stop-smudge').onclick = () => smudgeTimer.stop();
+    document.getElementById('reset-smudge').onclick = () => smudgeTimer.reset();
+
+    const huntTimer = createTimer(document.getElementById('hunt-timer'), 25);
+    document.getElementById('start-hunt').onclick = () => huntTimer.start();
+    document.getElementById('stop-hunt').onclick = () => huntTimer.stop();
+    document.getElementById('reset-hunt').onclick = () => huntTimer.reset();
+
+    // Initially show all ghosts
+    filterGhosts();
   </script>
 </body>
 </html>
