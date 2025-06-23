@@ -175,4 +175,51 @@
       { name: "Goryo", evidence: ["EMF Level 5", "D.O.T.S Projector", "Spirit Box"], traits: "Rarely seen unless a camera is nearby.", speed: "1.25" },
       { name: "Onryo", evidence: ["Ghost Orb", "Spirit Box", "Freezing Temps"], traits: "Can extinguish flames to hunt faster.", speed: "1.25" },
       { name: "Twins", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "Two ghosts but only one can hunt at a time.", speed: "1.25" },
-      { name: "Mimic", evidence: ["]()
+      { name: "Mimic", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "Can mimic other ghosts' behaviors.", speed: "1.25" },
+      { name: "Deogen", evidence: ["Spirit Box", "Freezing Temps", "Ghost Orb"], traits: "Fast and likes to throw objects.", speed: "1.4" },
+      { name: "Yokai", evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"], traits: "More active and aggressive when people talk near it.", speed: "1.25" },
+      { name: "Thaye", evidence: ["EMF Level 5", "Ghost Writing", "Spirit Box"], traits: "Recently added ghost with unique traits.", speed: "1.3" },
+      { name: "Moroi", evidence: ["Ghost Orb", "Spirit Box", "Freezing Temps"], traits: "Rare ghost that feeds on sanity.", speed: "1.25" },
+    ];
+
+    const selectedEvidence = new Set();
+    const evidenceButtonsDiv = document.getElementById("evidence-buttons");
+    const ghostTableBody = document.getElementById("ghost-table");
+
+    function updateTable() {
+      ghostTableBody.innerHTML = "";
+      ghosts.forEach(ghost => {
+        const matches = [...selectedEvidence].every(e => ghost.evidence.includes(e));
+        const row = document.createElement("tr");
+        if (!matches) row.classList.add("hidden");
+
+        row.innerHTML = `
+          <td>${ghost.name}</td>
+          <td>${ghost.evidence.join(", ")}</td>
+          <td>${ghost.traits}</td>
+          <td>${ghost.speed}</td>
+        `;
+        ghostTableBody.appendChild(row);
+      });
+    }
+
+    evidenceList.forEach(evi => {
+      const btn = document.createElement("button");
+      btn.textContent = evi;
+      btn.addEventListener("click", () => {
+        if (selectedEvidence.has(evi)) {
+          selectedEvidence.delete(evi);
+          btn.classList.remove("selected");
+        } else {
+          selectedEvidence.add(evi);
+          btn.classList.add("selected");
+        }
+        updateTable();
+      });
+      evidenceButtonsDiv.appendChild(btn);
+    });
+
+    updateTable();
+  </script>
+</body>
+</html>
