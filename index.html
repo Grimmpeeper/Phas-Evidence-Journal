@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phasmophobia Cheat Sheet | Grimmpeeper's Community Server</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -112,12 +112,17 @@
       color: #888;
       border-top: 1px solid #444;
     }
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+    }
   </style>
 </head>
 <body>
-  <header>
-    Phasmophobia Cheat Sheet<br /><small style="font-size:1rem;">Grimmpeeper's Community Server</small>
-  </header>
+  <header>Phasmophobia Cheat Sheet<br><small style="font-size:1rem;">Grimmpeeper's Community Server</small></header>
   <div class="container">
     <div class="evidence" id="evidence-buttons"></div>
     <div class="ghost-cards" id="ghost-cards"></div>
@@ -142,270 +147,245 @@
       </div>
     </div>
   </div>
-  <footer>&copy; 2025 Grimmpeeper's Community Server | All game data © Kinetic Games</footer>
+  <footer>
+    &copy; 2025 Grimmpeeper's Community Server | All game data &copy; Kinetic Games
+    <br/>
+    <a href="https://www.tiktok.com/@grimmpeepergaming" target="_blank" rel="noopener">📱 TikTok</a>
+    <a href="https://discord.gg/grimmpeeperr" target="_blank" rel="noopener">💬 Discord</a>
+  </footer>
   <script>
-    const evidenceList = [
-      "EMF Level 5",
-      "Spirit Box",
-      "Ghost Writing",
-      "Freezing Temps",
-      "Ghost Orb",
-      "D.O.T.S Projector",
-      "Ultraviolet",
-    ];
-
+    const evidenceList = ["EMF Level 5", "Spirit Box", "Ghost Writing", "Freezing Temps", "Ghost Orb", "D.O.T.S Projector", "Ultraviolet"];
     const ghosts = [
       {
         name: "Spirit",
         evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
         traits: "Standard ghost with no unique strengths.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Wraith",
         evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
         traits: "Does not leave footprints, hates salt.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Phantom",
         evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
         traits: "Looking at it drops sanity quickly.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Poltergeist",
         evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
         traits: "Throws multiple objects at once.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Banshee",
         evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
         traits: "Targets one person at a time.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Jinn",
         evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
         traits: "Moves faster when far from players.",
-        speed: 2.5,
+        speed: 2.5
       },
       {
         name: "Mare",
         evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
         traits: "More likely to attack in the dark.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Revenant",
         evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
         traits: "Very fast when chasing, slow otherwise.",
-        speed: "1.0 / 3.0",
+        speed: "1.0 / 3.0"
       },
       {
         name: "Shade",
         evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
         traits: "Shy, less active around groups.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Demon",
         evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"],
         traits: "Can hunt more often.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Yurei",
         evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"],
         traits: "Strong sanity drain.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Oni",
         evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
         traits: "More active and visible.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Yokai",
         evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"],
         traits: "Hunts more when talking.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Hantu",
         evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"],
         traits: "Faster in cold rooms.",
-        speed: "1.4 - 2.7",
+        speed: "1.4 - 2.7"
       },
       {
         name: "Goryo",
         evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"],
         traits: "D.O.T.S. only on camera.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Myling",
         evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"],
         traits: "Quieter footsteps.",
-        speed: 1.7,
+        speed: 1.7
       },
       {
         name: "Onryo",
-        evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
-        traits: "Fires extinguish hunting chance.",
-        speed: 1.7,
+        evidence: ["Ghost Orb", "Freezing Temps", "Spirit Box"],
+        traits: "Powerful flame attacks.",
+        speed: 1.7
       },
       {
         name: "Raiju",
-        evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"],
-        traits: "Electrifies nearby electronics.",
-        speed: 1.7,
-      },
-      {
-        name: "Obake",
-        evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"],
-        traits: "Changes shape while hunting.",
-        speed: 1.7,
-      },
-      {
-        name: "The Twins",
-        evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
-        traits: "Can separate and hunt individually.",
-        speed: 1.7,
-      },
+        evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"],
+        traits: "Disrupts electronics.",
+        speed: 1.7
+      }
     ];
 
-    const evidenceButtonsDiv = document.getElementById('evidence-buttons');
-    const ghostCardsDiv = document.getElementById('ghost-cards');
+    const evidenceButtonsContainer = document.getElementById('evidence-buttons');
+    const ghostCardsContainer = document.getElementById('ghost-cards');
 
-    function normalizeEvidence(name) {
-      return name.trim().toLowerCase();
-    }
+    let selectedEvidence = new Set();
 
-    // Create evidence buttons
-    evidenceList.forEach(evidence => {
-      const btn = document.createElement('button');
-      btn.textContent = evidence;
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('selected');
-        filterGhosts();
-      });
-      evidenceButtonsDiv.appendChild(btn);
-    });
-
-    // Create ghost cards
-    ghosts.forEach(ghost => {
-      const card = document.createElement('div');
-      card.className = 'ghost-card';
-      card.innerHTML = `
-        <div class="ghost-name">${ghost.name}</div>
-        <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(', ')}</div>
-        <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
-        <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed}</div>
-      `;
-      ghostCardsDiv.appendChild(card);
-    });
-
-    // Cache cards array for filtering
-    const ghostCards = Array.from(document.querySelectorAll('.ghost-card'));
-
-    function filterGhosts() {
-      const selected = [...evidenceButtonsDiv.querySelectorAll('.selected')]
-        .map(b => normalizeEvidence(b.textContent));
-
-      if (selected.length === 0) {
-        // No evidence selected: show all normally
-        ghostCards.forEach(card => {
-          card.classList.remove('highlighted');
-          card.style.opacity = '1';
+    function createEvidenceButtons() {
+      evidenceList.forEach(ev => {
+        const btn = document.createElement('button');
+        btn.textContent = ev;
+        btn.addEventListener('click', () => {
+          if (selectedEvidence.has(ev)) {
+            selectedEvidence.delete(ev);
+            btn.classList.remove('selected');
+          } else {
+            selectedEvidence.add(ev);
+            btn.classList.add('selected');
+          }
+          updateGhostCards();
         });
-        ghostCards.forEach(card => ghostCardsDiv.appendChild(card));
-        return;
-      }
-
-      ghostCards.forEach((card, i) => {
-        const ghostEvidenceNormalized = ghosts[i].evidence.map(e => normalizeEvidence(e));
-        // Highlight if ghost has ALL selected evidence (AND logic) or ANY selected evidence (OR logic)
-        // For your request, highlight ghosts that have ALL selected evidence:
-        const hasAllEvidence = selected.every(ev => ghostEvidenceNormalized.includes(ev));
-        card.classList.toggle('highlighted', hasAllEvidence);
-        card.style.opacity = hasAllEvidence ? '1' : '0.4';
-      });
-
-      // Move highlighted ghosts to top with animation
-      const highlighted = ghostCards.filter(card => card.classList.contains('highlighted'));
-      const notHighlighted = ghostCards.filter(card => !card.classList.contains('highlighted'));
-
-      ghostCardsDiv.innerHTML = '';
-      highlighted.forEach(card => {
-        card.style.animation = 'none';
-        void card.offsetWidth; // trigger reflow
-        card.style.animation = 'fadeInSlide 0.4s forwards';
-        ghostCardsDiv.appendChild(card);
-      });
-      notHighlighted.forEach(card => {
-        card.style.animation = 'none';
-        void card.offsetWidth; // trigger reflow
-        card.style.animation = 'fadeInSlide 0.4s forwards';
-        ghostCardsDiv.appendChild(card);
+        evidenceButtonsContainer.appendChild(btn);
       });
     }
 
-    // Timers (basic implementation)
-    function createTimer(displayEl, durationSeconds) {
-      let timerId = null;
-      let endTime = null;
-
-      function update() {
-        const now = Date.now();
-        const diff = Math.max(0, Math.round((endTime - now) / 1000));
-        if (diff === 0) {
-          clearInterval(timerId);
-          timerId = null;
-          displayEl.textContent = 'Finished';
-          return;
-        }
-        displayEl.textContent = `${diff} seconds`;
-      }
-
-      return {
-        start() {
-          if (timerId) return; // Already running
-          endTime = Date.now() + durationSeconds * 1000;
-          update();
-          timerId = setInterval(update, 1000);
-        },
-        stop() {
-          if (timerId) {
-            clearInterval(timerId);
-            timerId = null;
-            displayEl.textContent = 'Stopped';
+    function updateGhostCards() {
+      ghostCardsContainer.innerHTML = '';
+      ghosts.forEach(ghost => {
+        // Check if all selected evidence are present in the ghost's evidence array
+        let matches = true;
+        selectedEvidence.forEach(ev => {
+          if (!ghost.evidence.includes(ev)) {
+            matches = false;
           }
-        },
-        reset() {
-          if (timerId) {
-            clearInterval(timerId);
-            timerId = null;
-          }
-          displayEl.textContent = 'Not started';
+        });
+
+        // If no evidence selected, show all ghosts
+        if (selectedEvidence.size === 0) {
+          matches = true;
         }
+
+        const card = document.createElement('div');
+        card.classList.add('ghost-card');
+        if (matches) {
+          card.classList.add('highlighted');
+        }
+        // show all but fade out non-matching ghosts
+        card.style.opacity = matches ? '1' : '0.3';
+        card.innerHTML = `
+          <div class="ghost-name">${ghost.name}</div>
+          <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(', ')}</div>
+          <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
+          <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed}</div>
+        `;
+        ghostCardsContainer.appendChild(card);
+      });
+    }
+
+    createEvidenceButtons();
+    updateGhostCards();
+
+    // Timers code
+    function Timer(displayElement, totalSeconds) {
+      this.displayElement = displayElement;
+      this.totalSeconds = totalSeconds;
+      this.remainingSeconds = totalSeconds;
+      this.interval = null;
+      this.isRunning = false;
+
+      this.updateDisplay = () => {
+        let min = Math.floor(this.remainingSeconds / 60);
+        let sec = this.remainingSeconds % 60;
+        sec = sec < 10 ? "0" + sec : sec;
+        this.displayElement.textContent = `${min}:${sec}`;
       };
+
+      this.start = () => {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        this.interval = setInterval(() => {
+          if (this.remainingSeconds > 0) {
+            this.remainingSeconds--;
+            this.updateDisplay();
+          } else {
+            clearInterval(this.interval);
+            this.isRunning = false;
+            this.displayElement.textContent = "Time's up!";
+          }
+        }, 1000);
+      };
+
+      this.stop = () => {
+        if (!this.isRunning) return;
+        clearInterval(this.interval);
+        this.isRunning = false;
+        // On stop, show remaining time instead of "Stopped"
+        this.updateDisplay();
+      };
+
+      this.reset = () => {
+        clearInterval(this.interval);
+        this.isRunning = false;
+        this.remainingSeconds = this.totalSeconds;
+        this.updateDisplay();
+      };
+
+      this.updateDisplay();
     }
 
-    const smudgeTimer = createTimer(document.getElementById('smudge-timer'), 180);
-    document.getElementById('start-smudge').onclick = () => smudgeTimer.start();
-    document.getElementById('stop-smudge').onclick = () => smudgeTimer.stop();
-    document.getElementById('reset-smudge').onclick = () => smudgeTimer.reset();
+    const smudgeTimerDisplay = document.getElementById('smudge-timer');
+    const smudgeTimer = new Timer(smudgeTimerDisplay, 180);
 
-    const huntTimer = createTimer(document.getElementById('hunt-timer'), 25);
-    document.getElementById('start-hunt').onclick = () => huntTimer.start();
-    document.getElementById('stop-hunt').onclick = () => huntTimer.stop();
-    document.getElementById('reset-hunt').onclick = () => huntTimer.reset();
+    document.getElementById('start-smudge').addEventListener('click', () => smudgeTimer.start());
+    document.getElementById('stop-smudge').addEventListener('click', () => smudgeTimer.stop());
+    document.getElementById('reset-smudge').addEventListener('click', () => smudgeTimer.reset());
 
-    // Initially show all ghosts
-    filterGhosts();
+    const huntTimerDisplay = document.getElementById('hunt-timer');
+    const huntTimer = new Timer(huntTimerDisplay, 25);
+
+    document.getElementById('start-hunt').addEventListener('click', () => huntTimer.start());
+    document.getElementById('stop-hunt').addEventListener('click', () => huntTimer.stop());
+    document.getElementById('reset-hunt').addEventListener('click', () => huntTimer.reset());
   </script>
 </body>
 </html>
