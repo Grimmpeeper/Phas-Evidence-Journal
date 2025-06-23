@@ -19,20 +19,17 @@
       font-size: 2rem;
       border-bottom: 1px solid #444;
     }
+    header small {
+      font-size: 1rem;
+      display: block;
+      margin-top: 0.3rem;
+      font-weight: normal;
+      color: #bbb;
+    }
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 1rem;
-    }
-    .links {
-      text-align: center;
-      margin: 0.5rem 0 1rem 0;
-    }
-    .links a {
-      color: #00bcd4;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
     }
     .evidence {
       display: flex;
@@ -49,6 +46,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: 0.2s;
+      user-select: none;
     }
     .evidence button.selected {
       background-color: #00bcd4;
@@ -60,7 +58,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      min-height: 200px;
+      min-height: 400px;
     }
     .ghost-card {
       background-color: #1c1c1c;
@@ -68,6 +66,7 @@
       border: 1px solid #333;
       border-radius: 10px;
       width: 260px;
+      box-sizing: border-box;
       transition: transform 0.3s ease, opacity 0.3s ease;
       opacity: 0;
       transform: translateY(20px);
@@ -82,19 +81,24 @@
     .ghost-card.highlighted {
       border-color: #00bcd4;
       box-shadow: 0 0 10px #00bcd4;
+      opacity: 1 !important;
     }
     .ghost-name {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
     }
     .ghost-info {
       font-size: 0.9rem;
       margin: 0.3rem 0;
+      line-height: 1.3;
     }
     .timers {
       text-align: center;
-      margin: 2rem 0;
+      margin: 2rem 0 3rem;
     }
     .timer-block {
       margin-bottom: 2rem;
@@ -102,10 +106,13 @@
     .timer-label {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
     .timer-display {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin: 0.5rem 0;
+      font-variant-numeric: tabular-nums;
+      font-weight: bold;
     }
     .timer-buttons button {
       margin: 0 0.3rem;
@@ -115,6 +122,13 @@
       border-radius: 5px;
       color: #fff;
       cursor: pointer;
+      user-select: none;
+      transition: background-color 0.2s;
+    }
+    .timer-buttons button:hover {
+      background-color: #00bcd4;
+      color: #000;
+      border-color: #00bcd4;
     }
     footer {
       text-align: center;
@@ -123,18 +137,21 @@
       color: #888;
       border-top: 1px solid #444;
     }
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <header>
-    Phasmophobia Cheat Sheet<br />
-    <small style="font-size:1rem;">Grimmpeeper's Community Server</small>
+    Phasmophobia Cheat Sheet
+    <small>Grimmpeeper's Community Server</small>
   </header>
   <div class="container">
-    <div class="links">
-      <a href="https://discord.gg/grimmpeeperr" target="_blank" rel="noopener">Discord</a> |
-      <a href="https://www.tiktok.com/@grimmpeepergaming" target="_blank" rel="noopener">TikTok</a>
-    </div>
     <div class="evidence" id="evidence-buttons"></div>
     <div class="ghost-cards" id="ghost-cards"></div>
     <div class="timers">
@@ -143,7 +160,7 @@
         <div class="timer-display" id="smudge-timer">Not started</div>
         <div class="timer-buttons">
           <button id="start-smudge">Start</button>
-          <button id="stop-smudge">Stop</button>
+          <button id="stop-smudge">Pause</button>
           <button id="reset-smudge">Reset</button>
         </div>
       </div>
@@ -152,14 +169,16 @@
         <div class="timer-display" id="hunt-timer">Not started</div>
         <div class="timer-buttons">
           <button id="start-hunt">Start</button>
-          <button id="stop-hunt">Stop</button>
+          <button id="stop-hunt">Pause</button>
           <button id="reset-hunt">Reset</button>
         </div>
       </div>
     </div>
   </div>
   <footer>
-    &copy; 2025 Grimmpeeper's Community Server | All game data © Kinetic Games
+    &copy; 2025 Grimmpeeper's Community Server | All game data © Kinetic Games<br />
+    <a href="https://discord.gg/grimmpeeperr" target="_blank" rel="noopener">Discord</a> |
+    <a href="https://www.tiktok.com/@grimmpeepergaming" target="_blank" rel="noopener">TikTok</a>
   </footer>
   <script>
     const evidenceList = [
@@ -177,222 +196,64 @@
         name: "Spirit",
         evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
         traits: "Standard ghost with no unique strengths.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Wraith",
         evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
         traits: "Does not leave footprints, hates salt.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Phantom",
         evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
         traits: "Looking at it drops sanity quickly.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Poltergeist",
         evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
         traits: "Throws multiple objects at once.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Banshee",
         evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
         traits: "Targets one person at a time.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Jinn",
         evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
         traits: "Moves faster when far from players.",
-        speed: "2.5 m/s"
+        speed: 2.5
       },
       {
         name: "Mare",
         evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
         traits: "More likely to attack in the dark.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Revenant",
         evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
         traits: "Very fast when chasing, slow otherwise.",
-        speed: "1.0 / 3.0 m/s"
+        speed: "1.0 / 3.0"
       },
       {
         name: "Shade",
         evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
         traits: "Shy, less active around groups.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Demon",
         evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"],
         traits: "Can hunt more often.",
-        speed: "1.7 m/s"
+        speed: 1.7
       },
       {
         name: "Yurei",
         evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"],
-        traits: "Strong sanity drain.",
-        speed: "1.7 m/s"
-      },
-      {
-        name: "Oni",
-        evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
-        traits: "More active and visible.",
-        speed: "1.7 m/s"
-      },
-      {
-        name: "Yokai",
-        evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"],
-        traits: "Makes noises only when nearby.",
-        speed: "1.7 m/s"
-      },
-      {
-        name: "Hantu",
-        evidence: ["Freezing Temps", "Ghost Orb", "Ultraviolet"],
-        traits: "Moves faster in cold areas.",
-        speed: "1.7 m/s"
-      },
-      {
-        name: "Raiju",
-        evidence: ["EMF Level 5", "Spirit Box", "Ultraviolet"],
-        traits: "Strikes electronics nearby.",
-        speed: "1.7 m/s"
-      }
-    ];
 
-    const evidenceButtonsContainer = document.getElementById('evidence-buttons');
-    const ghostCardsContainer = document.getElementById('ghost-cards');
-    const selectedEvidence = new Set();
-
-    // Create buttons for evidence
-    evidenceList.forEach(ev => {
-      const btn = document.createElement('button');
-      btn.textContent = ev;
-      btn.addEventListener('click', () => {
-        if (selectedEvidence.has(ev)) {
-          selectedEvidence.delete(ev);
-          btn.classList.remove('selected');
-        } else {
-          selectedEvidence.add(ev);
-          btn.classList.add('selected');
-        }
-        updateGhostCards();
-      });
-      evidenceButtonsContainer.appendChild(btn);
-    });
-
-    function updateGhostCards() {
-      ghostCardsContainer.innerHTML = '';
-
-      // Separate ghosts into matches and non-matches
-      const matches = [];
-      const nonMatches = [];
-
-      ghosts.forEach(ghost => {
-        let isMatch = true;
-        selectedEvidence.forEach(ev => {
-          if (!ghost.evidence.includes(ev)) {
-            isMatch = false;
-          }
-        });
-
-        if (selectedEvidence.size === 0) {
-          isMatch = true; // show all when no evidence selected
-        }
-
-        if (isMatch) matches.push(ghost);
-        else nonMatches.push(ghost);
-      });
-
-      // Render matches first, then non-matches
-      matches.concat(nonMatches).forEach(ghost => {
-        const isMatch = matches.includes(ghost);
-
-        const card = document.createElement('div');
-        card.classList.add('ghost-card');
-        if (isMatch) {
-          card.classList.add('highlighted');
-          card.style.opacity = '1';
-        } else {
-          card.style.opacity = '0.3';
-        }
-        card.innerHTML = `
-          <div class="ghost-name">${ghost.name}</div>
-          <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(', ')}</div>
-          <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
-          <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed}</div>
-        `;
-        ghostCardsContainer.appendChild(card);
-      });
-    }
-
-    updateGhostCards();
-
-    // Timer functionality
-    function createTimer(displayElement, durationSec) {
-      let timer = durationSec;
-      let interval = null;
-      let running = false;
-
-      function updateDisplay() {
-        let min = Math.floor(timer / 60);
-        let sec = timer % 60;
-        displayElement.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
-      }
-
-      function start() {
-        if (running) return;
-        running = true;
-        if (timer <= 0) timer = durationSec;
-        interval = setInterval(() => {
-          if (timer > 0) {
-            timer--;
-            updateDisplay();
-          } else {
-            clearInterval(interval);
-            running = false;
-            displayElement.textContent = "0:00";
-          }
-        }, 1000);
-      }
-
-      function stop() {
-        running = false;
-        clearInterval(interval);
-        // On stop, keep current time displayed (do nothing else)
-      }
-
-      function reset() {
-        running = false;
-        clearInterval(interval);
-        timer = durationSec;
-        updateDisplay();
-      }
-
-      updateDisplay();
-
-      return { start, stop, reset };
-    }
-
-    const smudgeTimerDisplay = document.getElementById('smudge-timer');
-    const smudgeTimer = createTimer(smudgeTimerDisplay, 180); // 3 minutes
-
-    document.getElementById('start-smudge').addEventListener('click', () => smudgeTimer.start());
-    document.getElementById('stop-smudge').addEventListener('click', () => smudgeTimer.stop());
-    document.getElementById('reset-smudge').addEventListener('click', () => smudgeTimer.reset());
-
-    const huntTimerDisplay = document.getElementById('hunt-timer');
-    const huntTimer = createTimer(huntTimerDisplay, 25); // 25 seconds
-
-    document.getElementById('start-hunt').addEventListener('click', () => huntTimer.start());
-    document.getElementById('stop-hunt').addEventListener('click', () => huntTimer.stop());
-    document.getElementById('reset-hunt').addEventListener('click', () => huntTimer.reset());
-  </script>
-</body>
-</html>
 
