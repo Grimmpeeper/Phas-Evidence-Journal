@@ -182,166 +182,59 @@
   </footer>
   <script>
     const evidenceList = [
-      "EMF Level 5",
-      "Spirit Box",
-      "Ghost Writing",
-      "Freezing Temps",
-      "Ghost Orb",
-      "D.O.T.S Projector",
-      "Ultraviolet"
-    ];
-
-    const ghosts = [
-      {
-        name: "Spirit",
-        evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
-        traits: "Standard ghost with no unique strengths.",
-        speed: 1.7
-      },
-      {
-        name: "Wraith",
-        evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
-        traits: "Does not leave footprints, hates salt.",
-        speed: 1.7
-      },
-      {
-        name: "Phantom",
-        evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
-        traits: "Looking at it drops sanity quickly.",
-        speed: 1.7
-      },
-      {
-        name: "Poltergeist",
-        evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
-        traits: "Throws multiple objects at once.",
-        speed: 1.7
-      },
-      {
-        name: "Banshee",
-        evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
-        traits: "Targets one person at a time.",
-        speed: 1.7
-      },
-      {
-        name: "Jinn",
-        evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
-        traits: "Moves faster when far from players.",
-        speed: 2.5
-      },
-      {
-        name: "Mare",
-        evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
-        traits: "More likely to attack in the dark.",
-        speed: 1.7
-      },
-      {
-        name: "Revenant",
-        evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
-        traits: "Very fast when chasing, slow otherwise.",
-        speed: "1.0 / 3.0"
-      },
-      {
-        name: "Shade",
-        evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
-        traits: "Shy, less active around groups.",
-        speed: 1.7
-      },
-      {
-        name: "Demon",
-        evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"],
-        traits: "Can hunt more often.",
-        speed: 1.7
-      },
-      {
-        name: "Yurei",
-        evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Strong sanity drain.",
-    speed: 1.7
-  },
-  {
-    name: "Oni",
-    evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
-    traits: "More active and visible.",
-    speed: 1.7
-  },
-  {
-    name: "Yokai",
-    evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Hunts more when talking.",
-    speed: 1.7
-  },
-  {
-    name: "Hantu",
-    evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"],
-    traits: "Faster in cold rooms.",
-    speed: "1.4 - 2.7"
-  },
-  {
-    name: "Goryo",
-    evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"],
-    traits: "D.O.T.S. only on camera.",
-    speed: 1.7
-  },
-  {
-    name: "Myling",
-    evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"],
-    traits: "Quieter footsteps.",
-    speed: 1.7
-  },
-  {
-    name: "Onryo",
-    evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
-    traits: "Fear of fire.",
-    speed: 1.7
-  },
-  {
-    name: "The Twins",
-    evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"],
-    traits: "Can interact in two places.",
-    speed: "1.5 / 1.9"
-  },
-  {
-    name: "Raiju",
-    evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"],
-    traits: "Faster near electronics.",
-    speed: "1.7 / 2.5"
-  },
-  {
-    name: "Obake",
-    evidence: ["EMF Level 5", "Ghost Orb", "Ultraviolet"],
-    traits: "Rare fingerprint variants.",
-    speed: 1.7
-  },
-  {
-    name: "The Mimic",
-    evidence: ["Spirit Box", "Ultraviolet", "Freezing Temps"],
-    traits: "Mimics other ghosts. Has Ghost Orbs as fake evidence.",
-    speed: "Varies"
-  },
-  {
-    name: "Moroi",
-    evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
-    traits: "Weakens with smudge; speeds up during hunts.",
-    speed: "1.5 - 2.25"
-  },
-  {
-    name: "Deogen",
-    evidence: ["Spirit Box", "Ghost Writing", "D.O.T.S Projector"],
-    traits: "Sees through hiding spots. Slows when near.",
-    speed: "3.0 → 0.4"
-  },
-  {
-    name: "Thaye",
-    evidence: ["Ghost Orb", "Ghost Writing", "D.O.T.S Projector"],
-    traits: "Ages and weakens over time.",
-    speed: "2.75 → 1.0"
-  }
+  "EMF Level 5",
+  "Spirit Box",
+  "Ghost Writing",
+  "Freezing Temps",
+  "Ghost Orb",
+  "D.O.T.S Projector",
+  "Ultraviolet"
 ];
 
+const ghosts = [
+  { name: "Spirit", evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"], traits: "Standard ghost with no unique strengths.", speed: "1.7 m/s" },
+  { name: "Wraith", evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"], traits: "Does not leave footprints, hates salt.", speed: "1.7 m/s" },
+  { name: "Phantom", evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"], traits: "Looking at it drops sanity quickly.", speed: "1.7 m/s" },
+  { name: "Poltergeist", evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"], traits: "Throws multiple objects at once.", speed: "1.7 m/s" },
+  { name: "Banshee", evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"], traits: "Targets one person at a time.", speed: "1.7 m/s" },
+  { name: "Jinn", evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"], traits: "Moves faster when far from players.", speed: "2.5 m/s" },
+  { name: "Mare", evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"], traits: "More likely to attack in the dark.", speed: "1.7 m/s" },
+  { name: "Revenant", evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"], traits: "Very fast when chasing, slow otherwise.", speed: "1.0 - 3.0 m/s" },
+  { name: "Shade", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Shy, less active around groups.", speed: "1.7 m/s" },
+  { name: "Demon", evidence: ["Freezing Temps", "Ghost Writing", "Ultraviolet"], traits: "Can hunt more often.", speed: "1.7 m/s" },
+  { name: "Yurei", evidence: ["Freezing Temps", "Ghost Orb", "D.O.T.S Projector"], traits: "Strong sanity drain.", speed: "1.7 m/s" },
+  { name: "Oni", evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"], traits: "More active and visible.", speed: "1.7 m/s" },
+  { name: "Yokai", evidence: ["Spirit Box", "Ghost Orb", "D.O.T.S Projector"], traits: "Hunts more when talking.", speed: "1.7 m/s" },
+  { name: "Hantu", evidence: ["Ghost Orb", "Ultraviolet", "Freezing Temps"], traits: "Faster in cold rooms.", speed: "1.4 - 2.7 m/s" },
+  { name: "Goryo", evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"], traits: "D.O.T.S. only visible on camera.", speed: "1.7 m/s" },
+  { name: "Myling", evidence: ["EMF Level 5", "Ghost Writing", "Ultraviolet"], traits: "Quieter footsteps.", speed: "1.7 m/s" },
+  { name: "Onryo", evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"], traits: "Fear of fire.", speed: "1.7 m/s" },
+  { name: "The Twins", evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"], traits: "Can interact in two places.", speed: "1.5 - 1.9 m/s" },
+  { name: "Raiju", evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"], traits: "Faster near electronics.", speed: "1.7 - 2.5 m/s" },
+  { name: "Obake", evidence: ["EMF Level 5", "Ghost Orb", "Ultraviolet"], traits: "Rare fingerprint variants.", speed: "1.7 m/s" },
+  { name: "The Mimic", evidence: ["Spirit Box", "Ultraviolet", "Freezing Temps"], traits: "Mimics other ghosts. Shows Ghost Orbs as fake evidence.", speed: "Varies" },
+  { name: "Moroi", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "Weakens with smudge; speeds up during hunts.", speed: "1.5 - 2.25 m/s" },
+  { name: "Deogen", evidence: ["Spirit Box", "Ghost Writing", "D.O.T.S Projector"], traits: "Sees through hiding spots. Slows near players.", speed: "0.4 - 3.0 m/s" },
+  { name: "Thaye", evidence: ["Ghost Orb", "Ghost Writing", "D.O.T.S Projector"], traits: "Ages and weakens over time.", speed: "2.75 - 1.0 m/s" }
+];
+
+const selectedEvidence = new Set();
 const evidenceButtonsDiv = document.getElementById("evidence-buttons");
 const ghostCardsDiv = document.getElementById("ghost-cards");
 
-const selectedEvidence = new Set();
+function createGhostCard(ghost) {
+  const card = document.createElement("div");
+  card.className = "ghost-card";
+  card.innerHTML = `
+    <div class="ghost-name">${ghost.name}</div>
+    <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(", ")}</div>
+    <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
+    <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed}</div>
+  `;
+  return card;
+}
+
+const allCards = ghosts.map(createGhostCard);
 
 evidenceList.forEach(ev => {
   const btn = document.createElement("button");
@@ -354,38 +247,18 @@ evidenceList.forEach(ev => {
   evidenceButtonsDiv.appendChild(btn);
 });
 
-function createGhostCard(ghost) {
-  const card = document.createElement("div");
-  card.className = "ghost-card";
-  card.innerHTML = `
-    <div class="ghost-name">${ghost.name}</div>
-    <div class="ghost-info"><strong>Evidence:</strong> ${ghost.evidence.join(", ")}</div>
-    <div class="ghost-info"><strong>Traits:</strong> ${ghost.traits}</div>
-    <div class="ghost-info"><strong>Speed:</strong> ${ghost.speed} m/s</div>
-  `;
-  return card;
-}
-
-const allCards = ghosts.map(createGhostCard);
-
 function updateGhostCards() {
   ghostCardsDiv.innerHTML = "";
   const selected = [...selectedEvidence];
   const matched = [];
   const rest = [];
-
-  allCards.forEach((card, index) => {
-    const ghost = ghosts[index];
+  allCards.forEach((card, i) => {
+    const ghost = ghosts[i];
     const isMatch = selected.every(ev => ghost.evidence.includes(ev));
     card.classList.toggle("highlighted", isMatch || selected.length === 0);
     card.style.opacity = isMatch || selected.length === 0 ? "1" : "0.3";
-    if (isMatch || selected.length === 0) {
-      matched.push(card);
-    } else {
-      rest.push(card);
-    }
+    (isMatch || selected.length === 0 ? matched : rest).push(card);
   });
-
   [...matched, ...rest].forEach(card => {
     card.style.animation = "none";
     void card.offsetWidth;
@@ -444,5 +317,7 @@ function setupTimer(startId, stopId, resetId, displayId, duration, label) {
 
 setupTimer("start-smudge", "stop-smudge", "reset-smudge", "smudge-timer", 180, "Smudge");
 setupTimer("start-hunt", "stop-hunt", "reset-hunt", "hunt-timer", 25, "Hunt Cooldown");
-
-
+    // It includes all 24 ghosts, proper evidence logic, animations, sorting, and timer handling.
+  </script>
+</body>
+</html>
