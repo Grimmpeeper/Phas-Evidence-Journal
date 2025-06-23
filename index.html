@@ -156,131 +156,23 @@
     ];
 
     const ghosts = [
-      {
-        name: "Spirit",
-        evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"],
-        traits: "No unique strengths, standard ghost.",
-        speed: "1.25"
-      },
-      {
-        name: "Wraith",
-        evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"],
-        traits: "Doesn't leave footprints, hates salt.",
-        speed: "1.3"
-      },
-      {
-        name: "Phantom",
-        evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"],
-        traits: "Looking at it drops sanity fast.",
-        speed: "1.25"
-      },
-      {
-        name: "Poltergeist",
-        evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"],
-        traits: "Can throw multiple objects at once.",
-        speed: "1.25"
-      },
-      {
-        name: "Banshee",
-        evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"],
-        traits: "Targets one person at a time.",
-        speed: "1.3"
-      },
-      {
-        name: "Jinn",
-        evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"],
-        traits: "Travels faster if you're far away.",
-        speed: "1.4"
-      },
-      {
-        name: "Mare",
-        evidence: ["Spirit Box", "Freezing Temps", "Ghost Orb"],
-        traits: "More aggressive in the dark.",
-        speed: "1.25"
-      },
-      {
-        name: "Revenant",
-        evidence: ["Ghost Writing", "Freezing Temps", "D.O.T.S Projector"],
-        traits: "Moves faster when hunting.",
-        speed: "1.7"
-      },
-      {
-        name: "Shade",
-        evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"],
-        traits: "Shy and harder to find when multiple people nearby.",
-        speed: "1.25"
-      },
-      {
-        name: "Demon",
-        evidence: ["Ghost Writing", "Spirit Box", "Freezing Temps"],
-        traits: "More likely to attack, ignoring sanity.",
-        speed: "1.25"
-      },
-      {
-        name: "Yurei",
-        evidence: ["Ghost Orb", "Freezing Temps", "D.O.T.S Projector"],
-        traits: "Faster sanity drain in the room it haunts.",
-        speed: "1.25"
-      },
-      {
-        name: "Oni",
-        evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"],
-        traits: "Moves objects and ghosts faster.",
-        speed: "1.5"
-      },
-      {
-        name: "Hantu",
-        evidence: ["Freezing Temps", "Ghost Orb", "Thermometer"],
-        traits: "Slower in warmer areas, faster in cold.",
-        speed: "1.25"
-      },
-      {
-        name: "Myling",
-        evidence: ["EMF Level 5", "Ghost Writing", "Thermometer"],
-        traits: "Quieter footsteps, but stronger attacks.",
-        speed: "1.25"
-      }
-    ];
-
-    const selectedEvidence = new Set();
-    const evidenceButtonsDiv = document.getElementById("evidence-buttons");
-    const ghostTableBody = document.getElementById("ghost-table");
-
-    function updateTable() {
-      ghostTableBody.innerHTML = "";
-      ghosts.forEach(ghost => {
-        const matches = [...selectedEvidence].every(e => ghost.evidence.includes(e));
-        const row = document.createElement("tr");
-        if (!matches) row.classList.add("hidden");
-
-        row.innerHTML = `
-          <td>${ghost.name}</td>
-          <td>${ghost.evidence.join(", ")}</td>
-          <td>${ghost.traits}</td>
-          <td>${ghost.speed}</td>
-        `;
-        ghostTableBody.appendChild(row);
-      });
-    }
-
-    evidenceList.forEach(evi => {
-      const btn = document.createElement("button");
-      btn.textContent = evi;
-      btn.title = "Click to toggle evidence filter";
-      btn.addEventListener("click", () => {
-        if (selectedEvidence.has(evi)) {
-          selectedEvidence.delete(evi);
-          btn.classList.remove("selected");
-        } else {
-          selectedEvidence.add(evi);
-          btn.classList.add("selected");
-        }
-        updateTable();
-      });
-      evidenceButtonsDiv.appendChild(btn);
-    });
-
-    updateTable();
-  </script>
-</body>
-</html>
+      { name: "Spirit", evidence: ["EMF Level 5", "Spirit Box", "Ghost Writing"], traits: "No unique strengths, standard ghost.", speed: "1.25" },
+      { name: "Wraith", evidence: ["EMF Level 5", "Spirit Box", "D.O.T.S Projector"], traits: "Doesn't leave footprints, hates salt.", speed: "1.3" },
+      { name: "Phantom", evidence: ["Spirit Box", "Ultraviolet", "D.O.T.S Projector"], traits: "Looking at it drops sanity fast.", speed: "1.25" },
+      { name: "Poltergeist", evidence: ["Spirit Box", "Ghost Writing", "Ultraviolet"], traits: "Can throw multiple objects at once.", speed: "1.25" },
+      { name: "Banshee", evidence: ["Ghost Orb", "Ultraviolet", "D.O.T.S Projector"], traits: "Targets one person at a time.", speed: "1.3" },
+      { name: "Jinn", evidence: ["EMF Level 5", "Freezing Temps", "Ultraviolet"], traits: "Travels faster if you're far away.", speed: "1.4" },
+      { name: "Mare", evidence: ["Spirit Box", "Freezing Temps", "Ghost Orb"], traits: "More aggressive in the dark.", speed: "1.25" },
+      { name: "Revenant", evidence: ["Ghost Writing", "Freezing Temps", "D.O.T.S Projector"], traits: "Moves faster when hunting.", speed: "1.7" },
+      { name: "Shade", evidence: ["EMF Level 5", "Ghost Writing", "Freezing Temps"], traits: "Shy and harder to find when multiple people nearby.", speed: "1.25" },
+      { name: "Demon", evidence: ["Ghost Writing", "Spirit Box", "Freezing Temps"], traits: "More likely to attack, ignoring sanity.", speed: "1.25" },
+      { name: "Yurei", evidence: ["Ghost Orb", "Freezing Temps", "D.O.T.S Projector"], traits: "Faster sanity drain in the room it haunts.", speed: "1.25" },
+      { name: "Oni", evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"], traits: "Moves objects and ghosts faster.", speed: "1.5" },
+      { name: "Hantu", evidence: ["Freezing Temps", "Ghost Orb", "Thermometer"], traits: "Slower in warmer areas, faster in cold.", speed: "1.25" },
+      { name: "Myling", evidence: ["EMF Level 5", "Ghost Writing", "Thermometer"], traits: "Quieter footsteps, but stronger attacks.", speed: "1.25" },
+      { name: "Raiju", evidence: ["EMF Level 5", "Spirit Box", "Thermometer"], traits: "Faster when near electrical devices.", speed: "1.4" },
+      { name: "Obake", evidence: ["EMF Level 5", "Ghost Writing", "D.O.T.S Projector"], traits: "Can shape-shift and leave different evidence.", speed: "1.25" },
+      { name: "Goryo", evidence: ["EMF Level 5", "D.O.T.S Projector", "Spirit Box"], traits: "Rarely seen unless a camera is nearby.", speed: "1.25" },
+      { name: "Onryo", evidence: ["Ghost Orb", "Spirit Box", "Freezing Temps"], traits: "Can extinguish flames to hunt faster.", speed: "1.25" },
+      { name: "Twins", evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"], traits: "Two ghosts but only one can hunt at a time.", speed: "1.25" },
+      { name: "Mimic", evidence: ["]()
